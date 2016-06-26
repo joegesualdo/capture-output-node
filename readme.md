@@ -1,11 +1,5 @@
-## @joegesualdo/capture-output-node [![Build Status](https://travis-ci.org/joegesualdo/capture-output-node.svg?branch=master)](https://travis-ci.org/joegesualdo/capture-output-node)
+## capture-output [![Build Status](https://travis-ci.org/joegesualdo/capture-output-node.svg?branch=master)](https://travis-ci.org/joegesualdo/capture-output-node)
 > Capture console.log output. Useful for testing cli modules.
-
-## Highlights
-
-- Highlight 1
-- Highlight 2
-- Highlight 3
 
 ## Install
 ```
@@ -14,9 +8,16 @@ $ npm install --save @joegesualdo/capture-output-node
 
 ## Usage
 ```javascript
-var @joegesualdo/captureOutputNode = require("@joegesualdo/capture-output-node").default
+import CaptureOutput from '@joegesualdo/capture-output-node';
 
-// insert code example here
+var capturedOutput = new CaptureOutput();
+
+console.log('Woowee')
+
+capturedOutput.get()
+.then((output) => {
+  // output === 'Woowee'
+})
 ```
 
 ## Test
@@ -24,28 +25,39 @@ var @joegesualdo/captureOutputNode = require("@joegesualdo/capture-output-node")
 $ npm test
 ```
 ## API
-### `methodName(arg1, arg2)`
-> What does this method do?
 
-| Name | Type | Description |
-|------|------|-------------|
-| arg1 | `Array` | Test description|
-| arg2 | `String` | Test description|
+### `constructor()`
+> Creates an intance of CaptureOutput 
 
-Returns: `Array`, of things
+Returns: `CapturedOutput`, instance of CaptureOutput 
 
 ```javascript
-var @joegesualdo/captureOutputNode = require("@joegesualdo/capture-output-node").default
+import CaptureOutput from '@joegesualdo/capture-output-node';
 
-// insert method example here
+var capturedOutput = new CaptureOutput();
+```
+
+### `get()`
+> Gets the output that was captured from the time you created the CaptureOutput instance. 
+
+Returns: `Promise`, The promise passes a string (utf8) that represent everything that was printed to the output since the instance of CatpureOuput was initialized.
+
+```javascript
+import CaptureOutput from '@joegesualdo/capture-output-node';
+
+var capturedOutput = new CaptureOutput();
+
+console.log('Woowee')
+
+capturedOutput.get()
+.then((output) => {
+  // output === 'Woowee'
+})
 ```
 ## Build
 ```
 $ npm run build
 ```
-
-## Related
-- [example-package]() - Add description of the example package here.
 
 ## License
 MIT © [Joe Gesualdo]()

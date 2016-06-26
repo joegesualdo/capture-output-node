@@ -1,7 +1,7 @@
 {
   "name": "@joegesualdo/capture-output-node",
   "repository": "joegesualdo/capture-output-node",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Capture console.log output. Useful for testing cli modules.",
   "main": "./dist/index.js",
   "scripts": {
